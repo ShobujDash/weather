@@ -24,6 +24,8 @@ const useWeather = () => {
 
   const { selectedLocation } = useContext(LocationContext);
 
+ 
+
   const fetchWeatherData = async (latitude, longitude) => {
     try {
       setLoading({
@@ -97,10 +99,14 @@ const useWeather = () => {
       message: "Finding location...",
     });
 
-    navigator.geolocation.getCurrentPosition(function (position) {
-      fetchWeatherData(position.coords.latitude, position.coords.longitude);
-    });
-  }, []);
+    if (selectedLocation.latitude && selectedLocation.longitude) {
+      fetchWeatherData(selectedLocation.latitude, selectedLocation.longitude);
+    } else {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        fetchWeatherData(position.coords.latitude, position.coords.longitude);
+      });
+    }
+  }, [selectedLocation.latitude, selectedLocation.longitude]);
 
   return {
     weatherData,

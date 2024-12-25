@@ -1,4 +1,4 @@
-import { useState } from "react";
+ import { useState } from "react";
 import { LocationContext } from "../context";
 
 const LocationProvider = ({ children }) => {

@@ -10,6 +10,6 @@ const useLocalStorage = (storageKey, defaultValue) => {
     }, [value, storageKey]);
 
     return [value, setValue];
-};
+}; 
 
 export default useLocalStorage;
