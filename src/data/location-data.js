@@ -1,4 +1,4 @@
-const data = [
+ const data = [
     {
         location: "London",
         latitude: 51.5073219,

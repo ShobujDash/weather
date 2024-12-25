@@ -1,5 +1,5 @@
 import { FavouriteContext } from "../context";
-import { useLocalStorage } from "../hooks";
+import useLocalStorage from "../useLocalStorage";
 
 const FavouriteProvider = ({ children }) => {
     const [favourites, setFavourites] = useLocalStorage("favourites", []);
